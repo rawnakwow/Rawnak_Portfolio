@@ -1,0 +1,199 @@
+.heroSection {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 5rem; /* Account for navbar */
+  position: relative;
+  overflow: hidden;
+}
+
+.heroContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  width: 100%;
+}
+
+.textContent {
+  flex: 1;
+  z-index: 2;
+}
+
+.greeting {
+  font-size: 1.5rem;
+  color: var(--accent-primary);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  display: block;
+}
+
+.name {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+}
+
+.designationWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: var(--text-secondary);
+}
+
+.designation {
+  color: var(--accent-secondary);
+  position: relative;
+}
+
+/* Typing cursor animation */
+.cursor {
+  display: inline-block;
+  width: 3px;
+  height: 2rem;
+  background-color: var(--accent-primary);
+  margin-left: 4px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.description {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Image Section */
+.imageContent {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  padding: 10px;
+  background: var(--accent-gradient);
+  animation: float 6s ease-in-out infinite;
+}
+
+.imageInner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--bg-primary);
+  border: 4px solid var(--bg-primary);
+  position: relative;
+}
+
+.profileImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Background elements */
+.glowBlob {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+  top: 50%;
+  right: -100px;
+  transform: translateY(-50%);
+  z-index: 1;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Mobile responsive - keeping the image centered and above the text on mobile */
+@media (max-width: 968px) {
+  .heroContent {
+    flex-direction: column-reverse; /* Put image on top */
+    text-align: center;
+    gap: 3rem;
+    padding-top: 2rem;
+  }
+
+  .textContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imageContent {
+    justify-content: center;
+    width: 100%; /* Ensure it takes full width to center */
+    /* This ensures it stays in the middle and doesn't get pushed down */
+    margin-bottom: 1rem;
+  }
+
+  .designationWrapper {
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+  
+  .name {
+    font-size: 3rem;
+  }
+
+  .imageWrapper {
+    width: 280px;
+    height: 280px;
+  }
+
+  .actionButtons {
+    justify-content: center;
+  }
+  
+  .glowBlob {
+    right: 50%;
+    transform: translate(50%, -50%);
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .name {
+    font-size: 2.5rem;
+  }
+  
+  .designationWrapper {
+    font-size: 1.25rem;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .cursor {
+    height: 1.5rem;
+  }
+}

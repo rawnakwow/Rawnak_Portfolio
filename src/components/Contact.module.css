@@ -1,0 +1,114 @@
+.contactSection {
+  background-color: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.contactContainer {
+  display: flex;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+.contactInfo {
+  flex: 1;
+}
+
+.contactText {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.contactMethods {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.methodItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.methodIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--accent-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.methodDetails h4 {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.methodDetails p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.contactForm {
+  flex: 1;
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.formGroup label {
+  display: block;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.formInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formInput:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+textarea.formInput {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submitBtn {
+  width: 100%;
+  cursor: none; /* Let custom cursor handle */
+}
+
+@media (max-width: 768px) {
+  .contactContainer {
+    flex-direction: column;
+  }
+}

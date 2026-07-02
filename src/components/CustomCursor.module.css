@@ -1,0 +1,49 @@
+.cursorDot {
+  width: 8px;
+  height: 8px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+  will-change: transform;
+}
+
+.cursorRing {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  background-color: transparent;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transition: width 0.25s, height 0.25s, border-color 0.25s, background-color 0.25s;
+  will-change: transform;
+}
+
+/* Hover state styling when cursor is over links/buttons */
+.cursorHoverRing {
+  width: 48px;
+  height: 48px;
+  border-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.cursorHoverDot {
+  width: 5px;
+  height: 5px;
+  background-color: var(--accent-cyan);
+}
+
+/* Hide cursor on touch devices */
+@media (max-width: 900px) {
+  .cursorDot, .cursorRing {
+    display: none !important;
+  }
+}
