@@ -24,7 +24,7 @@ export default function Contact() {
                 <div className={styles.methodIcon}>✉️</div>
                 <div className={styles.methodDetails}>
                   <h4>Email</h4>
-                  <p>rawnak@example.com</p>
+                  <p>mail.rawnakr955@gmail.com</p>
                 </div>
               </div>
               <div className={styles.methodItem}>
