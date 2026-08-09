@@ -89,13 +89,8 @@ export default function Hero() {
             </p>
             
             <div className={styles.actionButtons}>
-<<<<<<< HEAD
-              <a href="/Rawnak__Resume.pdf" download="Rawnak_Resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                Download Resume
-=======
               <a href="/Rawnak CV.pdf" download="CV.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                 Download CV 
->>>>>>> acb293c (feat: add about skills education and contact sections)
               </a>
               <Link href="#projects" className="btn btn-outline">
                 View My Work
