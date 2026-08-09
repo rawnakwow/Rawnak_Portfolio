@@ -71,7 +71,7 @@ export default function Hero() {
           </div>
           
           <div className={styles.textContent}>
-            <span className={styles.greeting}>Hi 👋, I am</span>
+            <span className={styles.greeting}>Hi 👋, I&apos;m</span>
             <h1 className={styles.name}>Rawnak</h1>
             
             <div className={styles.designationWrapper}>
