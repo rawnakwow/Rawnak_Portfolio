@@ -61,10 +61,4 @@ src/
 │   ├── Navbar.tsx       # Sticky navigation with mobile menu
 │   ├── Projects.tsx     # Featured projects grid
 │   └── Skills.tsx       # Technical skills categorization
-```
 
-## 📬 Contact
-
-- **GitHub**: [github.com/rawnakwow](https://github.com/rawnakwow)
-- **LinkedIn**: [linkedin.com/in/rawnak-rawnak](https://www.linkedin.com/in/rawnak-rawnak)
-- **WhatsApp**: +880 124131344

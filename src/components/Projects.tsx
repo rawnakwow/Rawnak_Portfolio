@@ -1,57 +1,7 @@
+import Link from 'next/link';
 import ImageSlider from './ImageSlider';
 import styles from './Projects.module.css';
-
-const projects = [
-  {
-    title: "SkillSphere",
-    description: "A highly interactive, full-stack online learning platform designed to connect students with industry experts. Delivers robust form validations, seamless state routing, and dynamic data binding built for fast rendering cycles.",
-    features: [
-      "Advanced Auth Flow: Email/password & Google OAuth SSO",
-      "Compound Form Architectures: Prevents transparent event-blocking bugs",
-      "Polymorphic Design Pattern: Modern component specs with utility hooks",
-      "Database State Resolution: Persistent connection states preventing dropouts"
-    ],
-    tech: ["Next.js", "React", "MongoDB", "Better-Auth", "React-Toastify"],
-    images: [
-      "/projects/SkillSphere_SS/Login_After_Dashboard.jpg",
-      "/projects/SkillSphere_SS/Popular Courses Part in home page.jpg",
-      "/projects/SkillSphere_SS/Trending Part in home page.jpg",
-      "/projects/SkillSphere_SS/all Courese Page.jpg",
-      "/projects/SkillSphere_SS/google login profile.jpg",
-      "/projects/SkillSphere_SS/instructor part home page.jpg",
-      "/projects/SkillSphere_SS/last part home page.jpg",
-      "/projects/SkillSphere_SS/my_profile_page.jpg"
-    ],
-    liveUrl: "https://skiilsphere.vercel.app/",
-    githubUrl: "https://github.com/rawnakwow/skiilsphere.git"
-  },
-  {
-    title: "DocQueue",
-    description: "Real-time medical clinic dashboard and patient queue management system. Streamlines doctor appointments and provides live wait-time tracking to improve clinic efficiency and patient experience.",
-    features: [
-      "Real-time Queue Updates: WebSocket integrated live status board",
-      "Doctor Availability: Instant status toggles and schedule management",
-      "Patient Dashboard: Track current ticket and estimated wait times"
-    ],
-    tech: ["React", "Express", "Socket.io", "PostgreSQL", "TailwindCSS"],
-    images: ["/projects/docqueue.jpg"],
-    liveUrl: "#",
-    githubUrl: "#"
-  },
-  {
-    title: "HealthFlow Tracker",
-    description: "A comprehensive health and fitness companion web application. Allows users to track daily metrics, visualize progress through interactive charts, and maintain a consistent wellness routine.",
-    features: [
-      "Interactive Dashboards: Visualize steps, hydration, and sleep data",
-      "Custom Goals: Set and track personal fitness milestones",
-      "Responsive Design: Seamless experience across mobile and desktop"
-    ],
-    tech: ["Next.js", "TypeScript", "Chart.js", "Firebase"],
-    images: ["/projects/healthflow.jpg"],
-    liveUrl: "#",
-    githubUrl: "#"
-  }
-];
+import { projects } from '@/data/projects';
 
 export default function Projects() {
   return (
@@ -86,17 +36,22 @@ export default function Projects() {
                   ))}
                 </div>
 
-                <div className={styles.projectLinks}>
-                  {project.liveUrl !== "#" && (
-                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className={`${styles.linkBtn} ${styles.primaryLink}`}>
-                      <span aria-hidden="true">🌐</span> Live Demo
-                    </a>
-                  )}
-                  {project.githubUrl !== "#" && (
-                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className={`${styles.linkBtn} ${styles.secondaryLink}`}>
-                      <span aria-hidden="true">💻</span> Source Code
-                    </a>
-                  )}
+                <div className={styles.projectLinks} style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  <Link href={`/projects/${project.id}`} className={`${styles.linkBtn} ${styles.primaryLink}`} style={{ justifyContent: 'center' }}>
+                    🔍 View Details
+                  </Link>
+                  <div style={{ display: 'flex', gap: '0.5rem' }}>
+                    {project.liveUrl !== "#" && (
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className={`${styles.linkBtn} ${styles.secondaryLink}`} style={{ flex: 1, justifyContent: 'center' }}>
+                        🌐 Live Demo
+                      </a>
+                    )}
+                    {project.githubUrl !== "#" && (
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className={`${styles.linkBtn} ${styles.secondaryLink}`} style={{ flex: 1, justifyContent: 'center' }}>
+                        💻 GitHub
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>

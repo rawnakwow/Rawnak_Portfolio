@@ -22,6 +22,9 @@ export default function AboutMe() {
             I am currently working on an Emergency Medical Service System to bridge the gap in rapid medical response.
           </p>
           <p className={styles.paragraph}>
+            Outside of programming, I love staying active and exploring my creative side. Whether I'm playing sports to keep my energy up or spending time painting, I believe that maintaining a balance between logic and creativity helps me become a better, more well-rounded developer.
+          </p>
+          <p className={styles.paragraph}>
             As I continue to hone my skills, my future goal is to grow into a highly proficient 
             Full Stack Developer, architecting scalable and impactful applications from the ground up.
           </p>
