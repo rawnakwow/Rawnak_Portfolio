@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './About.module.css';
 
 export default function About() {
@@ -57,12 +58,21 @@ export default function About() {
 
           <div>
             <h3 className={styles.sectionTitle}>Education</h3>
-            <div className={styles.educationCard}>
-              <h4 className={styles.eduTitle}>BSc in Computer Science & Engineering</h4>
-              <p className={styles.eduLocation}>Location: Bangladesh</p>
-              <p className={styles.eduUni}>East West University (EWU)</p>
-              <span className={styles.badge}>Completed</span>
-            </div>
+            <Link href="/academic" style={{ textDecoration: 'none', display: 'block' }}>
+              <div className={`${styles.educationCard} ${styles.interactiveEduCard}`}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.5rem' }}>
+                  <div>
+                    <h4 className={styles.eduTitle}>BSc in Computer Science & Engineering</h4>
+                    <p className={styles.eduLocation}>Location: Bangladesh</p>
+                    <p className={styles.eduUni}>East West University (EWU)</p>
+                  </div>
+                  <span className={styles.badge}>Completed</span>
+                </div>
+                <div className={styles.viewAcademicLink}>
+                  🎓 View Academic Highlights & Graduation Project →
+                </div>
+              </div>
+            </Link>
           </div>
         </div>
 

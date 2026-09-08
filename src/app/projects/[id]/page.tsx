@@ -40,7 +40,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
               ))}
             </div>
 
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '1.5rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>
               {project.liveUrl !== "#" && (
                 <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className={`${styles.linkBtn} ${styles.primaryLink}`} style={{ width: 'auto', padding: '0.6rem 1.5rem' }}>
                   🌐 Live Project Link
@@ -48,7 +48,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
               )}
               {project.githubUrl !== "#" && (
                 <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className={`${styles.linkBtn} ${styles.secondaryLink}`} style={{ width: 'auto', padding: '0.6rem 1.5rem' }}>
-                  💻 GitHub Repository
+                  💻 GitHub Repository {project.githubServerUrl ? '(Client)' : ''}
+                </a>
+              )}
+              {project.githubServerUrl && project.githubServerUrl !== "#" && (
+                <a href={project.githubServerUrl} target="_blank" rel="noopener noreferrer" className={`${styles.linkBtn} ${styles.secondaryLink}`} style={{ width: 'auto', padding: '0.6rem 1.5rem' }}>
+                  ⚙️ GitHub Repository (Server)
                 </a>
               )}
             </div>
@@ -148,7 +153,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
                   )}
                   {project.githubUrl !== "#" && (
                     <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className={`${styles.linkBtn} ${styles.secondaryLink}`}>
-                      <span>💻</span> GitHub Repository (Client)
+                      <span>💻</span> GitHub Repository {project.githubServerUrl ? '(Client)' : ''}
+                    </a>
+                  )}
+                  {project.githubServerUrl && project.githubServerUrl !== "#" && (
+                    <a href={project.githubServerUrl} target="_blank" rel="noopener noreferrer" className={`${styles.linkBtn} ${styles.secondaryLink}`}>
+                      <span>⚙️</span> GitHub Repository (Server)
                     </a>
                   )}
                 </div>

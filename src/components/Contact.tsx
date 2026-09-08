@@ -35,8 +35,8 @@ export default function Contact() {
       setStatus('success');
       setFormData({ name: '', email: '', message: '' });
       
-      // Reset success message after 5 seconds
-      setTimeout(() => setStatus('idle'), 5000);
+      // Reset success status message after 6 seconds
+      setTimeout(() => setStatus('idle'), 6000);
     } catch (error: any) {
       console.error(error);
       setStatus('error');
@@ -48,73 +48,148 @@ export default function Contact() {
     <section id="contact" className={`section ${styles.contactSection}`}>
       <div className="container">
         <h2 className="heading-2">Get In Touch</h2>
+        <p className="text-body" style={{ maxWidth: '600px', margin: '0 auto 3rem auto', textAlign: 'center' }}>
+          Feel free to reach out for new opportunities, project inquiries, or technical collaborations. 
+          I am always open to discussing new ideas!
+        </p>
+
         <div className={styles.contactContainer}>
+          {/* Interactive Contact Information Card */}
           <div className={styles.contactInfo}>
             <p className={styles.contactText}>
-              I'm currently looking for new opportunities. Whether you have a question, 
-              a project idea, or just want to say hi, I'll try my best to get back to you!
+              Connect directly through email, phone, or messaging platforms below:
             </p>
 
             <div className={styles.contactMethods}>
-              <div className={styles.methodItem}>
-                <div className={styles.methodIcon}>✉️</div>
-                <div className={styles.methodDetails}>
-                  <h4>Email</h4>
-                  <p>mail.rawnakr955@gmail.com</p>
+              <a 
+                href="mailto:mail.rawnakr955@gmail.com" 
+                className={styles.methodLink} 
+                aria-label="Send Email"
+              >
+                <div className={styles.methodItem}>
+                  <div className={styles.methodIcon}>✉️</div>
+                  <div className={styles.methodDetails}>
+                    <h4>Email</h4>
+                    <p>mail.rawnakr955@gmail.com</p>
+                  </div>
                 </div>
-              </div>
-              <div className={styles.methodItem}>
-                <div className={styles.methodIcon}>📱</div>
-                <div className={styles.methodDetails}>
-                  <h4>WhatsApp</h4>
-                  <p>+880 124131344</p>
+              </a>
+
+              <a 
+                href="https://wa.me/8801724131344" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className={styles.methodLink} 
+                aria-label="Chat on WhatsApp"
+              >
+                <div className={styles.methodItem}>
+                  <div className={styles.methodIcon}>💬</div>
+                  <div className={styles.methodDetails}>
+                    <h4>WhatsApp</h4>
+                    <p>+880 1724-131344</p>
+                  </div>
                 </div>
-              </div>
-              <div className={styles.methodItem}>
-                <div className={styles.methodIcon}>📞</div>
-                <div className={styles.methodDetails}>
-                  <h4>Phone</h4>
-                  <p>+880 124131344</p>
+              </a>
+
+              <a 
+                href="tel:+8801724131344" 
+                className={styles.methodLink} 
+                aria-label="Call Phone Number"
+              >
+                <div className={styles.methodItem}>
+                  <div className={styles.methodIcon}>📞</div>
+                  <div className={styles.methodDetails}>
+                    <h4>Phone</h4>
+                    <p>+880 1724-131344</p>
+                  </div>
                 </div>
-              </div>
-              <div className={styles.methodItem}>
-                <div className={styles.methodIcon}>📍</div>
-                <div className={styles.methodDetails}>
-                  <h4>Location</h4>
-                  <p>Dhaka, Bangladesh</p>
+              </a>
+
+              <a 
+                href="https://maps.google.com/?q=Dhaka,Bangladesh" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className={styles.methodLink} 
+                aria-label="View Location on Google Maps"
+              >
+                <div className={styles.methodItem}>
+                  <div className={styles.methodIcon}>📍</div>
+                  <div className={styles.methodDetails}>
+                    <h4>Location</h4>
+                    <p>Dhaka, Bangladesh</p>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
 
+          {/* Dynamic Interactive Message Form */}
           <form className={styles.contactForm} onSubmit={handleSubmit}>
             <div className={styles.formGroup}>
-              <label htmlFor="name">Name</label>
-              <input type="text" id="name" value={formData.name} onChange={handleChange} required className={styles.formInput} placeholder="John Doe" disabled={status === 'loading'} />
+              <label htmlFor="name">Your Name</label>
+              <input 
+                type="text" 
+                id="name" 
+                value={formData.name} 
+                onChange={handleChange} 
+                required 
+                className={styles.formInput} 
+                placeholder="John Doe" 
+                disabled={status === 'loading'} 
+              />
             </div>
+
             <div className={styles.formGroup}>
-              <label htmlFor="email">Email</label>
-              <input type="email" id="email" value={formData.email} onChange={handleChange} required className={styles.formInput} placeholder="john@example.com" disabled={status === 'loading'} />
+              <label htmlFor="email">Your Email</label>
+              <input 
+                type="email" 
+                id="email" 
+                value={formData.email} 
+                onChange={handleChange} 
+                required 
+                className={styles.formInput} 
+                placeholder="john@example.com" 
+                disabled={status === 'loading'} 
+              />
             </div>
+
             <div className={styles.formGroup}>
-              <label htmlFor="message">Message</label>
-              <textarea id="message" value={formData.message} onChange={handleChange} required className={styles.formInput} placeholder="Hello, I'd like to talk about..." disabled={status === 'loading'}></textarea>
+              <label htmlFor="message">Your Message</label>
+              <textarea 
+                id="message" 
+                value={formData.message} 
+                onChange={handleChange} 
+                required 
+                className={styles.formInput} 
+                placeholder="Hello Rawnak, I'd like to discuss a project..." 
+                disabled={status === 'loading'}
+              ></textarea>
             </div>
             
-            <button type="submit" className={`btn btn-primary ${styles.submitBtn}`} disabled={status === 'loading'}>
-              {status === 'loading' ? 'Sending...' : 'Send Message'}
+            <button 
+              type="submit" 
+              className={`btn btn-primary ${styles.submitBtn}`} 
+              disabled={status === 'loading'}
+            >
+              {status === 'loading' ? (
+                <span className={styles.loadingWrapper}>
+                  <span className={styles.spinner}></span> Sending...
+                </span>
+              ) : (
+                'Send Message 🚀'
+              )}
             </button>
 
             {status === 'success' && (
-              <p style={{ color: '#4ade80', marginTop: '1rem', textAlign: 'center', fontSize: '0.95rem' }}>
-                Message sent successfully! I'll get back to you soon.
-              </p>
+              <div className={styles.successBanner}>
+                ✅ Message sent successfully! I will get back to you soon.
+              </div>
             )}
             
             {status === 'error' && (
-              <p style={{ color: '#f87171', marginTop: '1rem', textAlign: 'center', fontSize: '0.95rem' }}>
-                {errorMessage}
-              </p>
+              <div className={styles.errorBanner}>
+                ⚠️ {errorMessage}
+              </div>
             )}
           </form>
         </div>

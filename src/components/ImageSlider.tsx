@@ -12,7 +12,34 @@ interface ImageSliderProps {
 export default function ImageSlider({ images, altPrefix }: ImageSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // If there's only one image, just render a static image to avoid slider overhead
+  const goToNext = useCallback(() => {
+    if (images.length <= 1) return;
+    setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+  }, [images.length]);
+
+  const goToPrev = () => {
+    if (images.length <= 1) return;
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
+  // Auto-play feature if multiple images exist
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const timer = setInterval(() => {
+      goToNext();
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [goToNext, images.length]);
+
+  if (!images || images.length === 0) {
+    return null;
+  }
+
+  // If there's only one image, just render a static image to avoid slider controls
   if (images.length === 1) {
     return (
       <div className={styles.sliderContainer}>
@@ -21,30 +48,11 @@ export default function ImageSlider({ images, altPrefix }: ImageSliderProps) {
           alt={altPrefix}
           fill
           className={styles.slideImage}
+          sizes="(max-width: 968px) 100vw, 50vw"
         />
       </div>
     );
   }
-
-  const goToNext = useCallback(() => {
-    setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
-  }, [images.length]);
-
-  const goToPrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
-  };
-
-  const goToSlide = (index: number) => {
-    setCurrentIndex(index);
-  };
-
-  // Auto-play feature
-  useEffect(() => {
-    const timer = setInterval(() => {
-      goToNext();
-    }, 4000);
-    return () => clearInterval(timer);
-  }, [goToNext]);
 
   return (
     <div className={styles.sliderContainer}>
