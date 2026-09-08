@@ -90,7 +90,7 @@ export default function Hero() {
             
             <div className={styles.actionGroup}>
               <div className={styles.actionButtons}>
-                <a href="/RAWNAK__Resume.pdf" download="Rawnak__Resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                <a href="/RAWNAK___Resume.pdf" download="RAWNAK___Resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                   Download Resume
                 </a>
                 <Link href="#projects" className="btn btn-outline">
